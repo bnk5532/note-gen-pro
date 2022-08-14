@@ -9,8 +9,23 @@ router.get('/api/notes', (req, res) => {
    }
    res.json(results);
 
-
   });
+
+// router.delete(/api.notes:id), (req, res) => {
+//   const result = findById(req.params.id, notes);
+//   if (result) {
+//     res.json
+//   }
+// }
+
+router.delete("/notes/:id", (req, res) => {
+  var deleteId = request.params.deleteId;
+ 
+  request.db.get('notes').remove({'id': deleteId}, function(error, document) {
+   if (error) res.send(error);
+   return res.send("deleted");
+  });
+ });  
   
 router.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
