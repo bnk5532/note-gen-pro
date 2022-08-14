@@ -22,8 +22,9 @@ router.delete("/notes/:id", (req, res) => {
   var deleteId = request.params.deleteId;
  
   request.db.get('notes').remove({'id': deleteId}, function(error, document) {
-   if (error) res.send(error);
+   if (err) res.send(err);
    return res.send("deleted");
+
   });
  });  
   
