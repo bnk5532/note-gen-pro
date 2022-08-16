@@ -1,15 +1,18 @@
 const router = require('express').Router();
 // const { createNewNote, filterByQuery } = require('')
-const { notes } = require('../../data/notes')
+const { notes } = require('../../db/db.json');
 
-router.get('/api/notes', (req, res) => {
-   let results = notes;
-   if (req.query) {
-        results = filterByQuery(req.query, results);
-   }
-   res.json(results);
+router.get('/notes', async (req, res) => {
+  try {
+    let results = notes;
+ 
+    res.json(results);
 
-  });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err)
+  }
+});
 
 // router.delete(/api.notes:id), (req, res) => {
 //   const result = findById(req.params.id, notes);
@@ -18,7 +21,7 @@ router.get('/api/notes', (req, res) => {
 //   }
 // }
 
-router.delete("/notes/:id", (req, res) => {
+router.delete('/notes/:id', (req, res) => {
   var deleteId = request.params.deleteId;
  
   request.db.get('notes').remove({'id': deleteId}, function(error, document) {
