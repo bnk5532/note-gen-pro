@@ -17,7 +17,7 @@ router.get("/notes", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+//FYI npm run watch for nodemon for proper delete functionality
 router.delete("/notes/:id", (req, res) => {
   var deleteId = req.params.id;
 
@@ -28,7 +28,7 @@ router.delete("/notes/:id", (req, res) => {
       JSON.stringify(updatedNotes)
     );
 
-    res.json({ ok: true });
+    res.json({updatedNotes});
 
 });
 
