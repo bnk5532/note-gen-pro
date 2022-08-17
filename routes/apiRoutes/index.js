@@ -1,21 +1,21 @@
 const router = require("express").Router();
-// const { createNewNote, filterByQuery } = require('')
 const notes = require("../../db/db.json");
 const fs = require("fs");
 const path = require("path");
+//npm package for auto unique id assignment
 const { v4: uuidv4 } = require("uuid");
 
 router.get("/notes", async (req, res) => {
-  try {
+  // try {
     let results = notes;
 
     console.log(results);
 
     res.json(results);
-  } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
-  }
+  // } catch (err) {
+  //   console.log(err);
+  //   res.status(400).json(err);
+  // }
 });
 //FYI npm run watch for nodemon for proper delete functionality
 router.delete("/notes/:id", (req, res) => {
@@ -31,7 +31,7 @@ router.delete("/notes/:id", (req, res) => {
     res.json({updatedNotes});
 
 });
-
+//posts new notes passed from front end
 router.post("/notes", (req, res) => {
   const newId = uuidv4();
 
@@ -40,14 +40,14 @@ router.post("/notes", (req, res) => {
     title: req.body.title,
     text: req.body.text
   }
-
+//pushes new notes to array
   notes.push(newNote);
 
   fs.writeFileSync(
     path.join(__dirname, "../../db/db.json"),
     JSON.stringify(notes)
   );
-
+//returns updated notes to front end
   res.json(notes);
 });
 
