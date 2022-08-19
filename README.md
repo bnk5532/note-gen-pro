@@ -9,7 +9,7 @@ An app designed to quickly create and list notes to better organize your daily l
 * JavaScript
 
 ## Deployed URL
-https://note-gen-pro-v1.herokuapp.com/notes
+https://note-gen-pro-v1.herokuapp.com/
 
 ## Contributors
 Brian King
