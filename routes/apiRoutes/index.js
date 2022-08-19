@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const notes = require("../../db/db.json");
+let notes = require("../../db/db.json");
 const fs = require("fs");
 const path = require("path");
 //npm package for auto unique id assignment
@@ -9,7 +9,7 @@ router.get("/notes", async (req, res) => {
   // try {
     let results = notes;
 
-    console.log(results);
+    // console.log(results);
 
     res.json(results);
   // } catch (err) {
@@ -21,14 +21,14 @@ router.get("/notes", async (req, res) => {
 router.delete("/notes/:id", (req, res) => {
   var deleteId = req.params.id;
 
-    const updatedNotes = notes.filter((note) => note.id !== deleteId);
+    notes = notes.filter((note) => note.id !== deleteId);
 
     fs.writeFileSync(
       path.join(__dirname, "../../db/db.json"),
-      JSON.stringify(updatedNotes)
+      JSON.stringify(notes)
     );
 
-    res.json({updatedNotes});
+    res.json({notes});
 
 });
 //posts new notes passed from front end
