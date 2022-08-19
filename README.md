@@ -1,7 +1,7 @@
 # note-gen-pro
 
 ## Description
-An app intended to create notes and list them to better organize your work and life balance.
+An app designed to quickly create and list notes to better organize your daily life!
 
 ## Languages
 * HTML
@@ -13,3 +13,5 @@ https://note-gen-pro-v1.herokuapp.com/notes
 
 ## Contributors
 Brian King
+
+![Screen Shot 2022-08-18 at 10 20 26 PM](https://user-images.githubusercontent.com/104585768/185528514-92eb89d5-e254-45d1-be7a-1b3f56b97f4b.png)
