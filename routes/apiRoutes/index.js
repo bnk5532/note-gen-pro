@@ -9,8 +9,6 @@ router.get("/notes", async (req, res) => {
   // try {
     let results = notes;
 
-    // console.log(results);
-
     res.json(results);
   // } catch (err) {
   //   console.log(err);
